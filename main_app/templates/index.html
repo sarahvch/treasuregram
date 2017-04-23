@@ -5,58 +5,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>TreasureGram</title>
   </head>
     <!-- <link href="{% static 'bootstrap.min.css'%}"
         rel="stylesheet"> -->
-    <link rel="stylesheet" type="text/css"
-        href="{% static 'style.css' %}">
-          <img src="{% static 'images/logo.png' %}" alt="TreasureGram" class="logo">
+  <link rel="stylesheet" type="text/css"href="{% static 'style.css' %}">
+  <img src="{% static 'images/logo.png' %}" alt="TreasureGram" class="logo">
   <body>
     <nav class="navbar navbar-default navbar-static-top text-center">
     <main class="container" role="main">
-      <div class="treasure panel panel-default">
     <h1>TreasureGram</h1>
-    {% for treasure in treasures %}
-    <div class="panel-heading">
-      <h2 class="panel-title"><{{treasure.name}}</h2>
-    </div>
-    <div class="panel-body">
-      <div class='treasure-photo'>
-        <img src="{% static treasure.img_url %}" height='200'>
-      </div>
-      <table class="treasure-table">
-        <tr>
-          <th>
-            <img src="{% static 'images/materials-icon.png' %}" height='30'>
-            Material:
-          </th>
-          <td> &nbsp{{ treasure.material }}</td>
-        </tr>
-        <tr>
-          <th>
-            <img src="{% static 'images/value.png' %}" height='30'>
-            Value:
-          </th>
-          <td> &nbsp{{ treasure.value }}</td>
-        </tr>
-        <tr>
-          <th>
-            <img src="{% static 'images/location.png' %}" height='20'>
-            Location:
-          </th>
-          <td> &nbsp{{ treasure.location }}</td>
-        </tr>
-        </table>
-      <p>{{ treasure.name }}</p>
-      {% if treasure.value > 0 %}
+    <div class="row">
+
+      <!-- #create new row every 3 treasures
+        #using forloop.counter
+        #use django filter to check if divisible by 3 value | divisbleby: 3, returns true or false -->
+      {% for treasure in treasures %}
+      <div class="col-md-4">
+
+        <!-- #wrapp entire panel in url -->
+        <a href="/{{treasure.id}}/">
+        <div class='treasure panel panel-default'>
+          <div class="panel-heading">
+            <h2 class="panel-title"><{{treasure.name}}</h2>
+          </div>
+    <!-- <div class="panel-body"> -->
+          <div class='treasure-photo'>
+            <img src="{% static treasure.img_url %}" height='200'>
+          </div>
+        </a>
+        </div>
+        <p>{{ treasure.name }}</p>
+        {% if treasure.value > 0 %}
         <p>{{ treasure.value }}</p>
-      {% else %}
+        {% else %}
         <p>Unknown</p>
-      {% endif %}
-    </div>
-    {% endfor %}
-  </div>
+        {% endif %}
+      </div>
+        {% if forloop.counter|divisibleby:3 %}
+      </div><div class="row">
+        {% endif %}
+        {% endfor %}
+      </div>
+    </main>
   </body>
 </html>

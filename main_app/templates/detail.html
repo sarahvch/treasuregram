@@ -1,0 +1,45 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <div class="treasure panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ treasure.name }}</h3>
+    </div>
+    <div class='panel-body'>
+      <div class="treasure-photo-detail">
+        <img src="{% static treasure.img_url %}" height='200'>
+      </div>
+      <table class='treasure-table'>
+        <tr>
+          <th>
+            <img src="{% static 'images/materials-icon.png' %}" height='30'>
+            Material:
+          </th>
+          <td> &nbsp{{ treasure.material }}</td>
+        </tr>
+        <tr>
+          <th>
+            <img src="{% static 'images/value.png' %}" height='30'>
+            Value:
+          </th>
+          <td> &nbsp{{ treasure.value }}</td>
+        </tr>
+        <tr>
+          <th>
+            <img src="{% static 'images/location.png' %}" height='20'>
+            Location:
+          </th>
+          <td> &nbsp{{ treasure.location }}</td>
+        </tr>
+        </table>
+</body>
+</html>
