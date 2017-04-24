@@ -1,0 +1,17 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css"href="{% static 'style.css' %}">
+<head>
+  <title>TreasureGram</title>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-static-top text-center">
+    <img src="{% static 'images/logo.png' %}" alt="TreasureGram" class="logo">
+  </nav>
+  <main class="container container--mw700">
+  {% block content %}
+  {% endblock %}
