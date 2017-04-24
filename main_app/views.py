@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Treasure
-# from django.http import HttpResponse
+from .forms import TreasureForm
+from django.http import HttpResponse
 
 
 
@@ -11,11 +12,28 @@ def index(request):
     # value = 1000.00
     # context = {'treasure_name':name,'treasure_val': value}
     treasures = Treasure.objects.all()
-    return render(request, 'index.html', {'treasures':treasures})
+    #to render form
+    form = TreasureForm()
+    return render(request, 'index.html', {'treasures':treasures,'form':form})
 
 def detail(request, treasure_id):
     treasure = Treasure.objects.get(id=treasure_id)
     return render(request, 'detail.html', {'treasure':treasure})
+
+    #checks if form is valid
+    #if form is value will create treasure, by looking up attributes in form.clean_data
+def post_treasure(request):
+    form = TreasureForm(request.POST)
+    if form.is_valid():
+        treasure = Treasure(name = form.cleaned_data['name'],
+        value = form.cleaned_data['value'],
+        material = form.cleaned_data['material'],
+        location = form.cleaned_data['location'],
+        img_url = form.cleaned_data['img_url'])
+        #saves treasure
+        treasure.save()
+    #outside of if statment redirect to homepage
+    return HttpResponseRedirect('/')
 # class Treasure:
 #     def __init__(self,name,value,material,location,img_url):
 #         self.name = name

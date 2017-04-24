@@ -48,7 +48,16 @@
         {% endif %}
         {% endfor %}
       </div>
+      <form action="post_url/" method="post">
+        <!-- template tag, portects against corss-site request forgery attacks -->
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
       {% endblock %}
+      <!-- -action going to post url
+      -method is post -->
+
+      </form>
     </main>
   </body>
 </html>
