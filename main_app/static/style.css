@@ -7,3 +7,7 @@ h1 {
   height: auto;
   width: auto\9;
 }
+
+p.panel-default {
+  text-transform: capitalize;
+}
