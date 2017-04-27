@@ -32,7 +32,7 @@
           </div>
     <!-- <div class="panel-body"> -->
           <div class='treasure-photo'>
-            <img src="{% static treasure.img_url %}" height='200'>
+            <img src="{{ treasure.img_url}}" height='200'>
           </div>
         </a>
         </div>
@@ -49,7 +49,6 @@
         {% endfor %}
       </div>
       <form action="post_url/" method="post">
-        <!-- template tag, portects against corss-site request forgery attacks -->
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit" />
