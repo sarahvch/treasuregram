@@ -1,5 +1,6 @@
 h1 {
-  color: green;
+  color: white;
+  text-shadow: 2px 2px #a3a3c2;
 }
 
 .logo {
@@ -8,6 +9,52 @@ h1 {
   width: auto\9;
 }
 
-p.panel-default {
-  text-transform: capitalize;
+p {
+  font-weight: 900;
+  color: white;
+}
+
+.panel-default {
+
+  background-image: url(images/map.jpg);
+  outline: none;
+  border: none;
+  border-radius: 25px;
+}
+
+body {
+  background-image: url(images/map.jpg);
+}
+
+.treasure-heading {
+  background-color: #ffd24d;
+  color: #ffffff;
+}
+
+
+.form-style {
+  background-image: url(images/map.jpg);
+  padding: 20px;
+  border-radius: 25px;
+  color: #ffffff;
+}
+
+label {
+    width:180px;
+    clear:left;
+    text-align:right;
+    padding-right:10px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-left: 50px;
+    font-weight: 900;
 }
