@@ -7,6 +7,18 @@ h1 {
   max-width: 100%;
   height: auto;
   width: auto\9;
+  margin-bottom: none;
+  padding: none;
+  line-height: none;
+  border: none;
+}
+
+.panel-heading {
+  margin-bottom: none;
+  padding: none;
+  line-height: none;
+  border: none;
+  outline: none;
 }
 
 p {
@@ -29,6 +41,11 @@ body {
 .treasure-heading {
   background-color: #ffd24d;
   color: #ffffff;
+  margin-bottom: none;
+  padding: none;
+  line-height: none;
+  border: none;
+  outline: none;
 }
 
 
@@ -57,4 +74,12 @@ input[type=button], input[type=submit], input[type=reset] {
     border-radius: 25px;
     margin-left: 50px;
     font-weight: 900;
+}
+
+.navbar {
+  margin-bottom: none;
+  padding: none;
+  line-height: none;
+  border: none;
+  outline: none;
 }
