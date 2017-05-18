@@ -22,7 +22,7 @@ def detail(request, treasure_id):
     return render(request, 'detail.html', {'treasure':treasure})
 
 def post_treasure(request):
-    form = TreasureForm(request.POST)
+    form = TreasureForm(request.POST, request.FILES)
     if form.is_valid():
         form.save(commit = True)
         # treasure = Treasure(name = form.cleaned_data['name'],
@@ -31,7 +31,7 @@ def post_treasure(request):
         # location = form.cleaned_data['location'],
         # img_url = form.cleaned_data['img_url'])
 
-        
+
     return HttpResponseRedirect ('/')
     #checks if form is valid
     #if form is value will create treasure, by looking up attributes in form.clean_data

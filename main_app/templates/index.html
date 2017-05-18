@@ -24,7 +24,7 @@
         </div>
     <!-- <div class="panel-body"> -->
           <div class='treasure-photo'>
-            <img src="{{ treasure.img_url}}" height='200'>
+            <img src="{{ treasure.image.url}}" height='200'>
           </div>
         </div>
       </a>
@@ -43,7 +43,7 @@
         {% endfor %}
       </div>
       <div class='form-style'>
-      <form action="post_url/" method="post">
+      <form enctype="multipart/form-data" action="post_url/" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit" />
