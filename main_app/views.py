@@ -17,6 +17,13 @@ def index(request):
     form = TreasureForm()
     return render(request, 'index.html', {'treasures':treasures,'form':form})
 
+def profile(request, username):
+    user = User.objects.get(username=username)
+    treasures = Treasure.objects.filer(user=user)
+    return render(request, 'profile.html',
+                    {'username': username,
+                    'treasures': treasures})
+
 def detail(request, treasure_id):
     treasure = Treasure.objects.get(id=treasure_id)
     return render(request, 'detail.html', {'treasure':treasure})
@@ -24,7 +31,9 @@ def detail(request, treasure_id):
 def post_treasure(request):
     form = TreasureForm(request.POST, request.FILES)
     if form.is_valid():
-        form.save(commit = True)
+        treasure = form.save(commit = False)
+        treasure.user=request.user
+        treasure.save()
         # treasure = Treasure(name = form.cleaned_data['name'],
         # value = form.cleaned_data['value'],
         # material = form.cleaned_data['material'],

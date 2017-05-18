@@ -4,6 +4,8 @@ from django.views.static import serve
 from . import views
 
 urlpatterns = [
+    #/w+ matches a word of any length
+    url(r'^user/(\w+)/$', views.profile, name='profile'),
     url(r'^$', views.index),
     url(r'^([0-9]+)/$', views.detail, name = 'detail'),
     url(r'^post_url/$', views.post_treasure, name = 'post_treasure'),
