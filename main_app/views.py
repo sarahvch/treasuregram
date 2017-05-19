@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Treasure
 from .forms import TreasureForm
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
@@ -19,10 +20,8 @@ def index(request):
 
 def profile(request, username):
     user = User.objects.get(username=username)
-    treasures = Treasure.objects.filer(user=user)
-    return render(request, 'profile.html',
-                    {'username': username,
-                    'treasures': treasures})
+    treasures = Treasure.objects.filter(user=user)
+    return render(request, 'profile.html',{'username':username,'treasures':treasures})
 
 def detail(request, treasure_id):
     treasure = Treasure.objects.get(id=treasure_id)

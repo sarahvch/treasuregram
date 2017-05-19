@@ -4,7 +4,6 @@ from django.views.static import serve
 from . import views
 
 urlpatterns = [
-    #/w+ matches a word of any length
     url(r'^user/(\w+)/$', views.profile, name='profile'),
     url(r'^$', views.index),
     url(r'^([0-9]+)/$', views.detail, name = 'detail'),
@@ -12,8 +11,4 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    urlpatterns += [
-        url(r'^media/(?P<path>.*)$',serve,
-            {'document_root': settings.MEDIA_ROOT,})
-
-    ]
+    urlpatterns += [url(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT,}),]
