@@ -6,6 +6,10 @@ class TreasureForm(forms.ModelForm):
     class Meta:
         model = Treasure
         fields = ['name', 'value', 'location', 'material', 'image']
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='User Name', max_length=64)
+    password = forms.CharField(widget=forms.PasswordInput())
 # class TreasureForm(forms.Form):
 #     name = forms.CharField(label='Name',max_length=100)
 #     value = forms.DecimalField(label='Value',max_digits=10,decimal_places=2)
