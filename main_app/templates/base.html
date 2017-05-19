@@ -3,7 +3,8 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-<!DOCTYPE html>
+<!DOCTYPE html
+<html lang="en">
 <link href="{% static 'bootstrap.min.css' %}" rel='sytlesheet'>
 <link rel="stylesheet" type="text/css"href="{% static 'style.css' %}">
 <head>
@@ -20,5 +21,10 @@
     {% endif %}
   </nav>
   <main class="container container--mw700">
+  </main>
   {% block content %}
   {% endblock %}
+  <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
