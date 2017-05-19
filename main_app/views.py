@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 
 def like_treasure(request):
-    treasure_id = request.GET.get('treasure_id', None)
+    treasure_id = request.POST.get('treasure_id', None)
 
     likes = 0
     if(treasure_id):
@@ -16,7 +16,7 @@ def like_treasure(request):
             likes = treasure.likes + 1
             treasure.likes = likes
             treasure.save()
-            
+
     return HttpResponse(likes)
 
 def logout_view(request):
